@@ -16,7 +16,7 @@ export const siteContent = {
     subline: "I find what's quietly broken, then build AI systems and products that fix it, reliably.",
     cta: {
       primary: "See my work",
-      secondary: "Download CV"
+      secondary: "View CV"
     },
     metaItems: [
       "Kolhapur, India",
@@ -229,7 +229,7 @@ export const siteContent = {
       { label: "LinkedIn", href: "https://linkedin.com/in/rajmagdum05" },
       { label: "GitHub", href: "https://github.com/RajMagdum05" },
       { label: "X (Twitter)", href: "https://x.com/RajMagdum5" },
-      { label: "Download CV", href: "/Raj-Magdum-Resume.pdf" }
+      { label: "CV (PDF)", href: "/Raj-Magdum-Resume.pdf" }
     ],
     topics: [
       "Role / Internship",

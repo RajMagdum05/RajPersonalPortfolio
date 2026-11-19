@@ -88,18 +88,29 @@ export const Hero: React.FC = () => {
             <Button href="#work" variant="primary" size="lg" icon>
               {hero.cta.primary}
             </Button>
-            <a
-              href={assetPath("/Raj-Magdum-Resume.pdf")}
-              target="_blank"
-              rel="noopener noreferrer"
-              download="Raj-Magdum-Resume.pdf"
-              className="inline-flex items-center justify-center font-medium transition-all duration-200 cursor-pointer select-none rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 text-base px-6 py-3 gap-2.5 h-12 border border-[var(--color-border)] bg-transparent text-[var(--color-ink)] hover:bg-[var(--color-surface-2)] hover:border-[var(--color-border-hover)] active:scale-[0.98]"
-            >
-              <span className="flex items-center gap-2">
-                {hero.cta.secondary}
+            <div className="inline-flex items-center rounded-full border border-[var(--color-border)] bg-transparent p-1 h-12 hover:border-[var(--color-border-hover)] transition-all">
+              <a
+                href={assetPath("/Raj-Magdum-Resume.pdf")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2 text-base font-medium text-[var(--color-ink)] hover:text-[#4ADE80] transition-colors"
+              >
+                <span>View CV</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+              <span className="w-px h-5 bg-[var(--color-border)]" aria-hidden="true" />
+              <a
+                href={assetPath("/Raj-Magdum-Resume.pdf")}
+                target="_blank"
+                rel="noopener noreferrer"
+                download="Raj-Magdum-Resume.pdf"
+                title="Download CV (PDF)"
+                className="inline-flex items-center gap-1.5 px-4 py-2 text-base font-medium text-[var(--color-muted)] hover:text-[var(--color-ink)] hover:bg-[var(--color-surface-2)] rounded-full transition-all"
+              >
                 <ArrowDown className="w-4 h-4" />
-              </span>
-            </a>
+                <span className="text-xs font-mono uppercase tracking-wider hidden sm:inline">Download</span>
+              </a>
+            </div>
           </motion.div>
         </div>
 

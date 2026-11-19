@@ -118,16 +118,31 @@ export const Contact: React.FC = () => {
               <ArrowUpRight className="w-4 h-4 text-[var(--color-muted)] group-hover:text-[var(--color-accent)] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
 
-            <a
-              href={assetPath("/Raj-Magdum-Resume.pdf")}
-              target="_blank"
-              rel="noopener noreferrer"
-              download="Raj-Magdum-Resume.pdf"
-              className="flex items-center justify-between py-3 border-b border-[var(--color-border)]/60 text-xl font-display text-[var(--color-ink)] hover:text-[var(--color-accent)] transition-colors group"
-            >
-              <span>Download CV</span>
-              <ArrowDown className="w-4 h-4 text-[var(--color-muted)] group-hover:text-[var(--color-accent)] transition-transform group-hover:translate-y-0.5" />
-            </a>
+            <div className="flex items-center justify-between py-3 border-b border-[var(--color-border)]/60 text-xl font-display text-[var(--color-ink)] group">
+              <span>Curriculum Vitae</span>
+              <div className="flex items-center gap-4 text-sm font-sans">
+                <a
+                  href={assetPath("/Raj-Magdum-Resume.pdf")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[var(--color-muted)] hover:text-[#4ADE80] transition-colors"
+                >
+                  <span>View PDF</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+                <span className="text-[var(--color-border)]">/</span>
+                <a
+                  href={assetPath("/Raj-Magdum-Resume.pdf")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download="Raj-Magdum-Resume.pdf"
+                  className="inline-flex items-center gap-1.5 text-[var(--color-muted)] hover:text-[var(--color-ink)] transition-colors"
+                >
+                  <span>Download</span>
+                  <ArrowDown className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Response Time Meta */}
