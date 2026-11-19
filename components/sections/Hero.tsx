@@ -92,6 +92,7 @@ export const Hero: React.FC = () => {
               href={assetPath("/Raj-Magdum-Resume.pdf")}
               target="_blank"
               rel="noopener noreferrer"
+              download="Raj-Magdum-Resume.pdf"
               className="inline-flex items-center justify-center font-medium transition-all duration-200 cursor-pointer select-none rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 text-base px-6 py-3 gap-2.5 h-12 border border-[var(--color-border)] bg-transparent text-[var(--color-ink)] hover:bg-[var(--color-surface-2)] hover:border-[var(--color-border-hover)] active:scale-[0.98]"
             >
               <span className="flex items-center gap-2">

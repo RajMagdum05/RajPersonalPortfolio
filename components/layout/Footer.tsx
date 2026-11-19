@@ -36,6 +36,7 @@ export const Footer: React.FC = () => {
                 href={isLocal ? assetPath(link.href) : link.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                download={link.href.endsWith(".pdf") ? "Raj-Magdum-Resume.pdf" : undefined}
                 className="hover:text-[var(--color-ink)] transition-colors"
               >
                 {link.label}
