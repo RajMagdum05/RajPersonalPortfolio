@@ -8,6 +8,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Chip } from "@/components/ui/Chip";
 import { Reveal } from "@/components/ui/Reveal";
 import { ArrowUpRight, Check, AlertCircle } from "lucide-react";
+import { assetPath } from "@/lib/utils";
 
 export const Work: React.FC = () => {
   const { work } = siteContent;
@@ -212,7 +213,7 @@ export const Work: React.FC = () => {
               <div className="bg-[var(--color-surface-2)]/60 border border-[var(--color-border)]/70 rounded-xl p-6 mb-8 flex items-center justify-center group-hover:border-[#B8F426]/30 transition-colors duration-500">
                 <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full overflow-hidden flex items-center justify-center bg-[#070808] border border-white/5 shadow-2xl shadow-black/80 group-hover:scale-105 transition-transform duration-300">
                   <img
-                    src="/images/hearly-logo-clean.png"
+                    src={assetPath("/images/hearly-logo-clean.png")}
                     alt="Hearly Brand Emblem"
                     className="w-full h-full object-cover"
                   />

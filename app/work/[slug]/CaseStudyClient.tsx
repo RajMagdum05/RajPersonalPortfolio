@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useParams, notFound } from "next/navigation";
 import { projects } from "@/content/projects";
 import { ArrowLeft, ArrowUpRight, Play, RefreshCw, Check, AlertTriangle, ShieldCheck } from "lucide-react";
+import { assetPath } from "@/lib/utils";
 
 export default function CaseStudyClient({ slug }: { slug: string }) {
   const project = projects.find((p) => p.slug === slug);
@@ -474,7 +475,7 @@ export default function CaseStudyClient({ slug }: { slug: string }) {
                   {/* Exact Hearly Emblem matching user's image */}
                   <div className="w-36 h-36 rounded-full overflow-hidden border border-white/10 shadow-2xl shadow-black/80 flex items-center justify-center bg-[#0B0D0B]">
                     <img
-                      src="/images/hearly-emblem.png"
+                      src={assetPath("/images/hearly-logo-clean.png")}
                       alt="Hearly Brand Emblem"
                       className="w-full h-full object-cover"
                     />

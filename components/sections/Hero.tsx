@@ -5,6 +5,7 @@ import { siteContent } from "@/content/site";
 import { Button } from "@/components/ui/Button";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { assetPath } from "@/lib/utils";
 
 export const Hero: React.FC = () => {
   const { hero } = siteContent;
@@ -87,7 +88,7 @@ export const Hero: React.FC = () => {
             <Button href="#work" variant="primary" size="lg" icon>
               {hero.cta.primary}
             </Button>
-            <Button href="/Raj-Magdum-Resume.pdf" variant="outline" size="lg">
+            <Button href={assetPath("/Raj-Magdum-Resume.pdf")} variant="outline" size="lg">
               <span className="flex items-center gap-2">
                 {hero.cta.secondary}
                 <ArrowDown className="w-4 h-4" />

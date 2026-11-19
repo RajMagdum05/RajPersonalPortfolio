@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { Copy, Check, ArrowUpRight, ArrowDown } from "lucide-react";
+import { assetPath } from "@/lib/utils";
 
 export const Contact: React.FC = () => {
   const { contact } = siteContent;
@@ -118,7 +119,7 @@ export const Contact: React.FC = () => {
             </a>
 
             <a
-              href="/Raj-Magdum-Resume.pdf"
+              href={assetPath("/Raj-Magdum-Resume.pdf")}
               target="_blank"
               rel="noopener noreferrer"
               download="Raj-Magdum-Resume.pdf"
