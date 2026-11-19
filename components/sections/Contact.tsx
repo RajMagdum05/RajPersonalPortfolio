@@ -122,7 +122,6 @@ export const Contact: React.FC = () => {
               href={assetPath("/Raj-Magdum-Resume.pdf")}
               target="_blank"
               rel="noopener noreferrer"
-              download="Raj-Magdum-Resume.pdf"
               className="flex items-center justify-between py-3 border-b border-[var(--color-border)]/60 text-xl font-display text-[var(--color-ink)] hover:text-[var(--color-accent)] transition-colors group"
             >
               <span>Download CV</span>
