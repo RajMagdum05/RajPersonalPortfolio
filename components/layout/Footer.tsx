@@ -3,6 +3,7 @@
 import React from "react";
 import { siteContent } from "@/content/site";
 import { ArrowUp } from "lucide-react";
+import { assetPath } from "@/lib/utils";
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -27,17 +28,21 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-6">
-          {siteContent.contact.links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[var(--color-ink)] transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+          {siteContent.contact.links.map((link) => {
+            const isLocal = link.href.startsWith("/");
+            return (
+              <a
+                key={link.label}
+                href={isLocal ? assetPath(link.href) : link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                download={link.href.endsWith(".pdf") ? "Raj-Magdum-Resume.pdf" : undefined}
+                className="hover:text-[var(--color-ink)] transition-colors"
+              >
+                {link.label}
+              </a>
+            );
+          })}
           <button
             onClick={scrollToTop}
             className="flex items-center gap-1 hover:text-[var(--color-ink)] transition-colors cursor-pointer"

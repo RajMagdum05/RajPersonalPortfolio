@@ -55,12 +55,25 @@ export const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, Bu
 
     if (href) {
       const isExternal = href.startsWith("http") || href.endsWith(".pdf");
+      if (isExternal) {
+        return (
+          <a
+            href={href}
+            className={combinedClassName}
+            target="_blank"
+            rel="noopener noreferrer"
+            download={href.endsWith(".pdf") ? "Raj-Magdum-Resume.pdf" : undefined}
+          >
+            {children}
+            {icon && <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />}
+          </a>
+        );
+      }
+
       return (
         <Link
           href={href}
           className={combinedClassName}
-          target={isExternal ? "_blank" : undefined}
-          rel={isExternal ? "noopener noreferrer" : undefined}
         >
           {children}
           {icon && <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />}
