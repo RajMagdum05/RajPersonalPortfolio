@@ -24,6 +24,8 @@ export const Contact: React.FC = () => {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const [honeypot, setHoneypot] = useState("");
 
   const handleCopy = () => {
     navigator.clipboard.writeText(contact.email);
@@ -31,13 +33,43 @@ export const Contact: React.FC = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (loading) return;
+
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    setSubmitError("");
+
+    try {
+      const endpoint = process.env.NEXT_PUBLIC_CONTACT_API_URL;
+      if (!endpoint) throw new Error("Contact endpoint is not configured.");
+
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formState.name.trim(),
+          email: formState.email.trim(),
+          topic: selectedTopic,
+          message: formState.message.trim(),
+          website: honeypot,
+        }),
+      });
+      const result = (await response.json()) as { success?: boolean };
+
+      if (!response.ok || !result.success) {
+        throw new Error("The contact endpoint did not accept the message.");
+      }
+
       setSubmitted(true);
-    }, 800);
+    } catch {
+      setSubmitError("Your message could not be sent. Please email me directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -174,6 +206,18 @@ export const Contact: React.FC = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="absolute -left-[9999px]" aria-hidden="true">
+                  <label htmlFor="contact-website">Leave this field empty</label>
+                  <input
+                    id="contact-website"
+                    name="website"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={honeypot}
+                    onChange={(event) => setHoneypot(event.target.value)}
+                  />
+                </div>
                 {/* Name & Email inputs */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
@@ -251,6 +295,15 @@ export const Contact: React.FC = () => {
                     className="w-full px-4 py-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-2)]/60 text-sm text-[var(--color-ink)] placeholder-[var(--color-faint)] focus:border-[var(--color-accent)] focus:bg-[var(--color-surface)] transition-all outline-hidden resize-none"
                   />
                 </div>
+
+                {submitError && (
+                  <p role="alert" className="text-sm text-red-400">
+                    {submitError}{" "}
+                    <a className="underline" href={`mailto:${contact.email}`}>
+                      Open email
+                    </a>
+                  </p>
+                )}
 
                 {/* Form Footer */}
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">

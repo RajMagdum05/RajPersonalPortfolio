@@ -1,0 +1,7 @@
+name = "raj-portfolio-contact"
+main = "src/index.js"
+compatibility_date = "2026-11-20"
+
+[vars]
+ALLOWED_ORIGIN = "https://rajmagdum05.github.io"
+CONTACT_RECIPIENT = "rajmagdum6844@gmail.com"

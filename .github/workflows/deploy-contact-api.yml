@@ -1,0 +1,33 @@
+name: Deploy contact mail API
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "contact-api/**"
+      - ".github/workflows/deploy-contact-api.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Test contact mail API
+        run: node --test contact-api/worker.test.js
+
+      - name: Deploy Cloudflare Worker
+        run: npx wrangler@4 deploy --config contact-api/wrangler.toml
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
