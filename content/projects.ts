@@ -160,7 +160,7 @@ export const projects: Project[] = [
     ],
     approach: [
       "Engineered full preprocessing pipeline with one-hot encoding, regex feature extraction, and standard scaling.",
-      "Trained and compared 4 machine learning models to maximize ROC-AUC.",
+      "Trained and compared 4 ML algorithms to classify high-risk policies for proactive claim-risk assessment.",
       "Deployed an intuitive Streamlit interface allowing underwriters to input policy parameters and receive instant probability estimates."
     ],
     architecture: [
@@ -171,8 +171,8 @@ export const projects: Project[] = [
       "Streamlit UI"
     ],
     results: [
-      "Achieved high precision on top decile of claims.",
-      "Interactive evaluation dashboard with 43 input fields."
+      "Deployed a Streamlit application with 43 input fields and probability-based risk predictions.",
+      "Compared 4 ML algorithms on 30,100 policy records across 44 features."
     ],
     links: {
       github: "https://github.com/RajMagdum05/94880_DS_Assignments/tree/main/Project"

@@ -56,12 +56,16 @@ export const Nav: React.FC = () => {
         {/* Left: RM Monogram */}
         <Link
           href="/"
-          className="group flex items-center justify-center w-9 h-9 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/80 hover:border-[#22C55E]/50 hover:bg-[#052e16]/40 transition-all duration-200"
+          className="group inline-flex items-center gap-1.5 text-[var(--color-ink)] transition-colors duration-200"
           aria-label="Raj Magdum Home"
         >
-          <span className="font-display italic text-sm text-[var(--color-ink)] group-hover:text-[#86EFAC] group-hover:scale-110 transition-all">
-            RM
+          <span className="font-[family-name:var(--font-script)] text-3xl leading-none -rotate-3 inline-block group-hover:text-[#86EFAC] transition-colors duration-200">
+            Raj
           </span>
+          <span
+            className="w-1.5 h-1.5 rounded-full bg-[#22C55E] shadow-[0_0_8px_rgba(34,197,94,0.8)] transition-transform duration-300 group-hover:scale-150"
+            aria-hidden="true"
+          />
         </Link>
 
         {/* Center: Desktop Navigation Links */}

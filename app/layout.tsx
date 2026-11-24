@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Inter, JetBrains_Mono } from "next/font/google";
+import { Instrument_Serif, Inter, JetBrains_Mono, Kaushan_Script } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
@@ -25,6 +25,13 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-mono",
+  display: "swap",
+});
+
+const kaushanScript = Kaushan_Script({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-script",
   display: "swap",
 });
 
@@ -55,7 +62,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${instrumentSerif.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${instrumentSerif.variable} ${inter.variable} ${jetbrainsMono.variable} ${kaushanScript.variable}`}
       suppressHydrationWarning
     >
       <body className="bg-[var(--color-bg)] text-[var(--color-text)] selection:bg-[var(--color-accent)] selection:text-white relative overflow-x-hidden">

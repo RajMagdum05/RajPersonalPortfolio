@@ -19,8 +19,7 @@ export const siteContent = {
       secondary: "View CV"
     },
     metaItems: [
-      "Kolhapur, India",
-      "B.Tech CSE (AI & ML) '27",
+      "Maharashtra, India",
       "E-Cell IIT Bombay",
       "YC Startup School"
     ],
@@ -39,7 +38,7 @@ export const siteContent = {
     paragraphs: [
       "I'm Raj. I've always been drawn to the small problems people quietly adapt to, the ones that become so normal nobody notices them anymore.",
       "Technology came later. It became my way of turning observations into something useful.",
-      "My process is simple: understand what's actually broken, question the assumptions, then turn it into something practical, with product thinking and hands-on execution."
+      "I start by understanding what's actually broken, questioning assumptions, and figuring out what needs to change, then turning that into something practical, with curiosity, product thinking and hands-on execution."
     ],
     cards: [
       {
@@ -146,7 +145,6 @@ export const siteContent = {
           "Python",
           "C++",
           "JavaScript",
-          "TypeScript",
           "FastAPI",
           "REST APIs",
           "PostgreSQL"
@@ -170,7 +168,7 @@ export const siteContent = {
           "OpenAI Codex",
           "Cursor",
           "AI Coding Agents",
-          "Agentic Workflows"
+          "Agentic Development Workflows"
         ]
       },
       {
